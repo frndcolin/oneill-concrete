@@ -3,6 +3,7 @@
     nav.navbar
       .navbar-logo(href='#') {{ $static.metadata.siteName }}
       .navbar-button
+        span.navbar-button--bar(v-for="n in 3")
       .navbar-list
         a.navbar-item(href="#Services") Services
         a.navbar-item(href="#Gallery") Gallery
@@ -25,7 +26,6 @@ query {
   font-family var(--primary-font)
   justify-content center
   letter-spacing 0.075em
-  margin-bottom 20px
   text-transform uppercase
 .navbar
   display flex
@@ -48,6 +48,19 @@ query {
       border-bottom-color #333333
       color #333333
       text-decoration none
+  &-button
+    align-items space-around
+    display flex
+    display none
+    flex-direction column
+    justify-content center
+    &--bar
+      background #333
+      content ''
+      display block
+      height 4px
+      margin 2px 0
+      width 40px
 .nav--link
   margin-left 20px
   @media (max-width: 419px)

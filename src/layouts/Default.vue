@@ -1,21 +1,18 @@
-<template>
-  <div class="layout">
-    <Header />
-    <div id="content-wrapper">
-      <slot />
-    </div>
-    <Footer />
-  </div>
+<template lang='pug'>
+  #page
+    page-header
+    slot
+    page-footer
 </template>
 
 <script>
-import Footer from "../components/Footer";
-import Header from "../components/Header";
+import PageFooter from "../components/PageFooter";
+import PageHeader from "../components/PageHeader";
 
 export default {
   components: {
-    Footer,
-    Header
+    PageFooter,
+    PageHeader
   }
 };
 </script>
@@ -33,9 +30,4 @@ body
   display flex
   flex-direction column
   height 100%
-#content-wrapper
-  flex 1 0 auto
-  margin 0 auto
-  max-width 950px
-  width 90vw
 </style>
