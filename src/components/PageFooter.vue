@@ -2,7 +2,7 @@
   <footer class="page-footer font-small teal py-4">
     <div class="footer-copyright text-center">
       Designed and coded by:
-      <a target="_blank" rel="noopener" href="https://loke.dev/">Loke Carlsson</a>
+      <a target="_blank" rel="noopener" href="https://loke.dev/">Colin Friend</a>
     </div>
   </footer>
 </template>

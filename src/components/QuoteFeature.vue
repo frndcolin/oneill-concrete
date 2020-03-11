@@ -1,7 +1,7 @@
 <template lang="pug">
   #quote-feature
     .feature--wrapper
-      h5.tagline feature quote tag line goes here
+      h5.tagline Business highlight tag line goes here, to attract customers
       action-button start your quote today
 </template>
 
@@ -16,9 +16,9 @@ export default {
 <style lang='stylus' scoped>
 #quote-feature
   align-items center
-  background #333333
+  background var(--gray-3)
   display flex
-  height 80px
+  height 96px
   justify-content center
   left 50%
   max-width 1040px

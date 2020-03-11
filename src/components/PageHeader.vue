@@ -34,19 +34,25 @@ query {
   padding-top 1rem
   width 80%
   &-logo
-    font-size 24px
+    background-image url('../assets/images/Text-Mask.jpg')
+    background-position top
+    background-size cover
+    color rgba(255, 255, 255, 0.15)
+    font-size 32px
+    letter-spacing 0.075em
+    -webkit-background-clip text
   &-list
     align-items center
     display flex
   &-item
     border-bottom 2px solid transparent
-    color #6f6f6f
+    color var(--gray-3)
     margin-left 40px
     padding 4px 8px 0 8px
     transition all 0.3s
     &:hover
-      border-bottom-color #333333
-      color #333333
+      border-bottom-color var(--black)
+      color var(--black)
       text-decoration none
   &-button
     align-items space-around

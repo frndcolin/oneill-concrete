@@ -2,14 +2,40 @@
 
 *
   box-sizing border-box
-:root
-  --body-font 'Montserrat', sans-serif
-  --primary-font 'Anton', sans-serif
+body, html
+  color var(--black)
+  height 100%
+  line-height 1.5
+  margin 0
+  padding 0
 section
   padding 152px 0
   position relative
+#app
+  display flex
+  flex-direction column
+  height 100%
 #landing
   background-image url('/images/bg-image.png')
   background-repeat no-repeat
   background-size cover
-  min-height 80vh
+  padding 96px 0
+.content-center
+  align-items center
+  display flex
+  justify-content center
+.content-right
+  align-items center
+  display flex
+  justify-content flex-end
+.content-left
+  align-items center
+  display flex
+  justify-content flex-start
+.debug
+  &-red
+    border 2px solid red
+  &-blue
+    border 2px solid blue
+  &-green
+    border 2px solid green

@@ -1,7 +1,22 @@
-body-font = 16px 'Montserrat', sans-serif
-headings-font = 'Anton', sans-serif
-h1 = 16px
-h2 = 16px
-h3 = 16px
-h4 = 16px
-h5 = 16px
+:root
+  --body-font 'Montserrat', 'Helvetica Neue', Arial, sans-serif
+  --h1 16px
+  --h2 16px
+  --h3 16px
+  --h4 16px
+  --h5 16px
+  --primary-font 'Anton', sans-serif
+h1, h2, h3, h4, h5
+  font-family var(--primary-font)
+  margin 0
+  padding 0
+h1
+  font-size 68px
+  letter-spacing 0.05em
+h2
+  margin-bottom 24px
+p
+  font-family var(--body-font)
+  font-size 16px
+  letter-spacing 0.025rem
+  line-height 1.8rem
