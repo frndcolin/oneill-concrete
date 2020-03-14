@@ -2,7 +2,7 @@
   #quote-feature
     .feature--wrapper
       h5.tagline Business highlight tag line goes here, to attract customers
-      action-button start your quote today
+      action-button start your quote
 </template>
 
 <script>
@@ -17,6 +17,7 @@ export default {
 #quote-feature
   align-items center
   background var(--gray-3)
+  box-shadow var(--gray-shadow)
   display flex
   height 96px
   justify-content center

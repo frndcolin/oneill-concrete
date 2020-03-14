@@ -66,6 +66,20 @@ export default {
   components: { QuickContact, QuoteFeature },
   metaInfo: {
     title: "O'Neill Concrete Inc."
+  },
+  data() {
+    return {
+      services: [
+        {
+          title: "Residential",
+          imgUrl: "~/assets/images/garage-floor.png"
+        },
+        {
+          title: "Commercial",
+          imgUrl: "~/assets/images/garage-floor.png"
+        }
+      ]
+    };
   }
 };
 </script>

@@ -45,15 +45,28 @@ query {
     align-items center
     display flex
   &-item
-    border-bottom 2px solid transparent
     color var(--gray-3)
+    cursor pointer
     margin-left 40px
-    padding 4px 8px 0 8px
-    transition all 0.3s
+    overflow visible
+    padding 8px 16px 6px 16px
+    position relative
+    transition all 0.4s
+    &::before
+      background transparent
+      border-bottom 4px solid var(--gray-4)
+      content ''
+      height 100%
+      left 0
+      position absolute
+      top 0
+      transition 0.4s
+      width 0
     &:hover
-      border-bottom-color var(--black)
-      color var(--black)
+      color var(--gray-4)
       text-decoration none
+      &::before
+        width 100%
   &-button
     align-items space-around
     display flex
@@ -67,9 +80,4 @@ query {
       height 4px
       margin 2px 0
       width 40px
-.nav--link
-  margin-left 20px
-  @media (max-width: 419px)
-    margin 0
-    padding 15px 10px 10px 0
 </style>
