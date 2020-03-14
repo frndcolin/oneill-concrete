@@ -5,8 +5,8 @@
       .navbar-button
         span.navbar-button--bar(v-for="n in 3")
       .navbar-list
-        a.navbar-item(href="#Services") Services
-        a.navbar-item(href="#Gallery") Gallery
+        a.navbar-item(href="#services") Services
+        a.navbar-item(href="#gallery") Gallery
         a.navbar-item(href="#contact") Contact
 </template>
 
