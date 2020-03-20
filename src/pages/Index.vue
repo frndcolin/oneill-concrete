@@ -18,59 +18,73 @@
       quote-feature
     #services
       section#commercial.service
-        b-container
-          b-row
-            b-col.content-left.p-0(cols='6')
-              .service-image
-                img.service-image--overlay(src='../assets/images/oc-logo.svg')
-                g-image(src='~/assets/images/garage-floor.png' width='480')
-            b-col.content-center(cols='6')
-              .content-wrapper
-                h2 Commercial Services
-                p.
-                  O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
+        b-container.commercial-wrapper
+          animator(target='.commercial-wrapper' triggerValue='0.1' enterClass='fadeIn' leaveClass='fadeOut')
+            b-row
+              b-col.content-left.p-0(cols='6')
+                .service-image
+                  img.service-image--overlay(src='../assets/images/oc-logo.svg')
+                  g-image(src='~/assets/images/garage-floor.png' width='480')
+              b-col.content-center(cols='6')
+                .content-wrapper
+                  h2 Commercial Services
+                  p.
+                    O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
       section#residential.service.no-bg
-        b-container
-          b-row
-            b-col.content-center(cols='6')
-              .content-wrapper
-                h2 Residential Services
-                p.
-                  O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
-            b-col.content-right.p-0(cols='6')
-              .service-image
-                img.service-image--overlay(src='../assets/images/oc-logo.svg')
-                g-image(src='~/assets/images/garage-floor.png' width='480')
+        b-container.residential-wrapper
+          animator(target='.residential-wrapper' triggerValue='0.1' enterClass='fadeIn' leaveClass='fadeOut')
+            b-row
+              b-col.content-center(cols='6')
+                .content-wrapper
+                  h2 Residential Services
+                  p.
+                    O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
+              b-col.content-right.p-0(cols='6')
+                .service-image
+                  img.service-image--overlay(src='../assets/images/oc-logo.svg')
+                  g-image(src='~/assets/images/garage-floor.png' width='480')
       section#custom.service
-        b-container
-          b-row
-            b-col.content-left.p-0(cols='6')
-              .service-image
-                img.service-image--overlay(src='../assets/images/oc-logo.svg')
-                g-image(src='~/assets/images/garage-floor.png' width='480')
-            b-col.content-center(cols='6')
-              .content-wrapper
-                h2 Custom Services
-                p.
-                  O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
+        b-container.custom-wrapper
+          animator(target='.custom-wrapper' triggerValue='0.1' enterClass='fadeIn' leaveClass='fadeOut')
+            b-row
+              b-col.content-left.p-0(cols='6')
+                .service-image
+                  img.service-image--overlay(src='../assets/images/oc-logo.svg')
+                  g-image(src='~/assets/images/garage-floor.png' width='480')
+              b-col.content-center(cols='6')
+                .content-wrapper
+                  h2 Custom Services
+                  p.
+                    O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
     section#gallery
       b-container
         b-row(align-h='center')
-          b-col(cols='3')
-            h1 GALLERY
+          b-col.content-center
+            image-gallery
     section#contact
       b-container
         b-row(align-h='center')
           b-col(cols='3')
             h1 CONTACT
+    animator(target='#welcome' triggerValue='0.1' enterClass='fadeInRight' leaveClass='fadeOutRight')
+      to-top-button
 </template>
 
 <script>
 import QuickContact from "../components/QuickContact";
 import QuoteFeature from "../components/QuoteFeature";
+import ImageGallery from "../components/ImageGallery";
+import Animator from "../components/Animator";
+import ToTopButton from "../components/ToTopButton";
 
 export default {
-  components: { QuickContact, QuoteFeature },
+  components: {
+    QuickContact,
+    QuoteFeature,
+    ImageGallery,
+    Animator,
+    ToTopButton
+  },
   metaInfo: {
     title: "O'Neill Concrete Inc."
   },

@@ -16,12 +16,13 @@ export default {
 <style lang='stylus' scoped>
 #quote-feature
   align-items center
-  background var(--gray-3)
+  background var(--gray-4)
   box-shadow var(--gray-shadow)
   display flex
-  height 96px
+  height 120px
   justify-content center
   left 50%
+  letter-spacing 0.075em
   max-width 1040px
   position absolute
   top 100%
@@ -33,8 +34,9 @@ export default {
     align-items center
     display flex
     justify-content space-between
-    width 80%
+    width 85%
     .tagline
       color white
       margin 0
+      max-width 65%
 </style>

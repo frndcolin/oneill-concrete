@@ -5,7 +5,7 @@
         h4 Quick Contact
       .quick-contact--body
         .form-group
-          label e-mail
+          label Email
           input(type='email' placeholder='reply-to@mail.com')
         .form-group
           label Message
@@ -29,6 +29,7 @@ export default {
     justify-content flex-end
   &--form
     background var(--white)
+    border-radius 2px
     box-shadow var(--gray-shadow)
     font-family var(--body-font)
     letter-spacing 0.04em
@@ -46,12 +47,13 @@ export default {
   &:last-of-type
     margin-bottom 32px
   label
-    color var(--gray-4)
+    color var(--gray-3)
     font-size 14px
     line-height 1.418em
     margin 0 0 2px 4px
   input[type='email'], textarea
     border 2px solid var(--gray-3)
+    border-radius 2px
     box-shadow var(--gray-shadow)
     color var(--gray-3)
     font-size 16px

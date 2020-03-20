@@ -5,9 +5,9 @@
       .navbar-button
         span.navbar-button--bar(v-for="n in 3")
       .navbar-list
-        a.navbar-item(href="#services") Services
-        a.navbar-item(href="#gallery") Gallery
-        a.navbar-item(href="#contact") Contact
+        nav-link(link='#services' text='Services')
+        nav-link(link='#gallery' text='Gallery')
+        nav-link(link='#contact' text='Contact')
 </template>
 
 <static-query>
@@ -17,6 +17,14 @@ query {
   }
 }
 </static-query>
+
+<script>
+import NavLink from "../components/NavLink";
+
+export default {
+  components: { NavLink }
+};
+</script>
 
 <style lang="stylus">
 .header
