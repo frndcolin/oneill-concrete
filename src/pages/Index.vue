@@ -17,45 +17,21 @@
                 O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
       quote-feature
     #services
-      section#commercial.service
-        b-container.commercial-wrapper
-          animator(target='.commercial-wrapper' triggerValue='0.1' enterClass='fadeIn' leaveClass='fadeOut')
-            b-row
-              b-col.content-left.p-0(cols='6')
-                .service-image
-                  img.service-image--overlay(src='../assets/images/oc-logo.svg')
-                  g-image(src='~/assets/images/garage-floor.png' width='480')
-              b-col.content-center(cols='6')
-                .content-wrapper
-                  h2 Commercial Services
-                  p.
-                    O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
-      section#residential.service.no-bg
-        b-container.residential-wrapper
-          animator(target='.residential-wrapper' triggerValue='0.1' enterClass='fadeIn' leaveClass='fadeOut')
-            b-row
-              b-col.content-center(cols='6')
-                .content-wrapper
-                  h2 Residential Services
-                  p.
-                    O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
-              b-col.content-right.p-0(cols='6')
-                .service-image
-                  img.service-image--overlay(src='../assets/images/oc-logo.svg')
-                  g-image(src='~/assets/images/garage-floor.png' width='480')
-      section#custom.service
-        b-container.custom-wrapper
-          animator(target='.custom-wrapper' triggerValue='0.1' enterClass='fadeIn' leaveClass='fadeOut')
-            b-row
-              b-col.content-left.p-0(cols='6')
-                .service-image
-                  img.service-image--overlay(src='../assets/images/oc-logo.svg')
-                  g-image(src='~/assets/images/garage-floor.png' width='480')
-              b-col.content-center(cols='6')
-                .content-wrapper
-                  h2 Custom Services
-                  p.
-                    O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
+      service-section#commercial
+        template(v-slot:content)
+          h2 Commercial Services
+          p.
+            O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
+      service-section#residential.no-bg(flip)
+        template(v-slot:content)
+          h2 Residential Services
+          p.
+            Testing slot for service component. O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
+      service-section#custom
+        template(v-slot:content)
+          h2 Custom Services
+          p.
+            Testing slot for service component. O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
     section#gallery
       b-container
         b-row(align-h='center')
@@ -76,6 +52,7 @@ import QuoteFeature from "../components/QuoteFeature";
 import ImageGallery from "../components/ImageGallery";
 import Animator from "../components/Animator";
 import ToTopButton from "../components/ToTopButton";
+import ServiceSection from "../components/ServiceSection";
 
 export default {
   components: {
@@ -83,7 +60,8 @@ export default {
     QuoteFeature,
     ImageGallery,
     Animator,
-    ToTopButton
+    ToTopButton,
+    ServiceSection
   },
   metaInfo: {
     title: "O'Neill Concrete Inc."
@@ -104,50 +82,11 @@ export default {
   }
 };
 </script>
+
 <style lang='stylus'>
-.service
-  background var(--gray-1)
-  &.no-bg
-    background var(--white)
-  &-image
-    box-shadow var(--gray-shadow)
-    position relative
-    transition all 0.3s
-    &::after
-      background linear-gradient(to bottom right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4))
-      content ''
-      height 100%
-      left 0
-      position absolute
-      top 0
-      transition all 0.3s
-      width 100%
-    &:hover
-      box-shadow var(--gray-shadow--hover)
-      transform scale(1.05)
-      &::after
-        opacity 0.1
-    &--overlay
-      bottom 16px
-      height 56px
-      opacity 0.5
-      position absolute
-      right 16px
-      transition all 0.4s
-      width auto
-    &:hover .service-image--overlay
-      animation-duration 1.5s
-      animation-fill-mode forwards
-      animation-name spin
-      animation-timing-function ease-in-out
 #tagline
   color var(--white)
   letter-spacing 0.075em
   text-shadow 8px 8px 16px rgba(53, 53, 53, 0.8), 6px 6px 4px rgba(53, 53, 53, 0.55)
   text-transform uppercase
-@keyframes spin
-  from
-    transform rotate(0deg)
-  to
-    transform rotate(360deg)
 </style>

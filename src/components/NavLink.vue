@@ -26,7 +26,7 @@ export default {
 thickness = 4px
 pad = 16px
 extra = calc(pad * 1.2)
-bgcolor = var(--gray-4)
+bgcolor = var(--primary)
 .nav-link
   color var(--gray-3)
   cursor pointer

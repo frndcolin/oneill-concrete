@@ -1,15 +1,26 @@
 <template lang="pug">
-  #to-top-button
+  #to-top-button(@click='scrollToTop')
     .icon
       a(href='#')
         g-image(src='~/assets/images/spade.svg')
     p.hint To Top
 </template>
 
+<script>
+export default {
+  methods: {
+    scrollToTop() {
+      document.body.scrollTop = 0;
+      document.documentElement.scrollTop = 0;
+    }
+  }
+};
+</script>
+
 <style lang="stylus" scoped>
 #to-top-button
   background transparent
-  border 4px solid #f2f2f2
+  border 4px solid var(--gray-1)
   border-radius 50%
   bottom 32px
   cursor pointer
@@ -20,7 +31,7 @@
   transition all 0.3s
   z-index 9999
   .icon
-    background #f2f2f2
+    background var(--gray-1)
     border-radius 50%
     padding 8px
     transition all 0.3s
