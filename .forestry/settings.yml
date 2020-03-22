@@ -16,8 +16,11 @@ sections:
 - type: directory
   path: content
   label: Content
-  create: all
+  create: documents
   match: "**/*"
+  new_doc_ext: ".md"
+  templates:
+  - content
 upload_dir: uploads
 public_path: "/uploads"
 front_matter_path: "../uploads"
