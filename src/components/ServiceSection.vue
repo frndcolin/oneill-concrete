@@ -73,8 +73,8 @@ export default {
       &::before
         opacity 0.1
       &::after
-        left 0
-        top 0
+        opacity 0
+        transform translate(-8px, -8px)
     &--overlay
       bottom 16px
       height 56px
