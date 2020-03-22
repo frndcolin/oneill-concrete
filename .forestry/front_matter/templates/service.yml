@@ -24,3 +24,5 @@ fields:
     maxSize: 250
   label: service-image
   description: Image to be displayed with service description
+pages:
+- services/commercial-services.md
