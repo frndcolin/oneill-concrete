@@ -26,4 +26,3 @@ fields:
   description: Image to be displayed with service description
 pages:
 - content/services/commercial-services.md
-- services/commercial-services.md
