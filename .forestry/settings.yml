@@ -11,6 +11,8 @@ sections:
   match: "**/*"
   exclude: "."
   new_doc_ext: md
+  templates:
+  - service
 - type: directory
   path: content
   label: Content
