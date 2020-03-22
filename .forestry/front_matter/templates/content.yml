@@ -1,4 +1,44 @@
 ---
 label: content
 hide_body: false
-fields: []
+fields:
+- name: banner-title
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: banner-title
+  description: Banner title
+- name: banner-message
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: banner-message
+  description: Banner message
+- name: welcome-title
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: welcome-title
+  description: Welcome section title
+- name: welcome-message
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: welcome-message
+  description: Welcome message
