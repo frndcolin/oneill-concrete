@@ -42,3 +42,5 @@ fields:
       format: markdown
   label: welcome-message
   description: Welcome message
+pages:
+- content/site-content.md
