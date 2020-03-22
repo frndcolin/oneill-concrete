@@ -16,10 +16,11 @@ sections:
 - type: directory
   path: content
   label: Content
-  create: documents
+  create: all
   match: "**/*"
   new_doc_ext: md
   templates:
+  - service
   - content
 upload_dir: uploads
 public_path: "/uploads"
