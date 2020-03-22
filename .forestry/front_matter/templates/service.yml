@@ -1,4 +1,26 @@
 ---
 label: service
 hide_body: false
-fields: []
+fields:
+- name: service-title
+  type: text
+  config:
+    required: false
+  label: service-title
+  description: Title for the service
+- name: service-description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: service-description
+  description: Description of service
+- name: service-image
+  type: file
+  config:
+    maxSize: 250
+  label: service-image
+  description: Image to be displayed with service description
