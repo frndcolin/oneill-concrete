@@ -2,49 +2,64 @@
   layout
     section#landing
       b-container
-        b-row
-          b-col.content-center(cols='7')
-            h1#tagline Quick Business Tag Line Goes Here
-          b-col(cols='5' align-self='center')
-            quick-contact
+        b-row(align-h='center')
+          b-col.content-center--column
+            h1#tagline {{ siteContent.banner_title }}
+            p#banner-msg {{ siteContent.banner_message }}
+            #banner-cta
+              action-button start your quote
     section#welcome
       b-container
         b-row( align-h='center')
           b-col.content-center(cols='8')
             .content-wrapper
-              h2 Welcome message about company and services
-              p.
-                O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
+              h2 {{ siteContent.welcome_title }}
+              p {{ siteContent.welcome_message }}
       quote-feature
     #services
-      service-section#commercial
+      service-section(
+        v-for='(service, index) in services'
+        :id='service.title'
+        :flip='index % 2 === 0 ? true : false'
+        :key='service.title'
+        )
         template(v-slot:content)
-          h2 Commercial Services
-          p.
-            O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
-      service-section#residential.no-bg(flip)
-        template(v-slot:content)
-          h2 Residential Services
-          p.
-            Testing slot for service component. O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
-      service-section#custom
-        template(v-slot:content)
-          h2 Custom Services
-          p.
-            Testing slot for service component. O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
+          h2 {{ service.title}} Services
+          p {{ service.description }}
     section#gallery
-      b-container
-        b-row(align-h='center')
-          b-col.content-center
-            image-gallery
+      image-gallery
     section#contact
       b-container
         b-row(align-h='center')
           b-col(cols='3')
             h1 CONTACT
-    animator(target='#welcome' triggerValue='0.1' enterClass='fadeInRight' leaveClass='fadeOutRight')
+    animator(target='#welcome' triggerValue='0.1' enterClass='fadeInRight' leaveClass='fadeOutRight' )
       to-top-button
 </template>
+
+<page-query>
+query {
+  services: allContent(filter: { path: { ne: "/content/site-content/" }}) {
+    edges {
+      node {
+        service_title
+        service_description
+        path
+      }
+    }
+  }
+  content: allContent(filter: { path: { eq: "/content/site-content/" }}) {
+    edges {
+      node {
+        banner_title
+        banner_message
+        welcome_title
+        welcome_message
+      }
+    }
+  }
+}
+</page-query>
 
 <script>
 import QuickContact from "../components/QuickContact";
@@ -53,9 +68,11 @@ import ImageGallery from "../components/ImageGallery";
 import Animator from "../components/Animator";
 import ToTopButton from "../components/ToTopButton";
 import ServiceSection from "../components/ServiceSection";
+import ActionButton from "../components/ActionButton";
 
 export default {
   components: {
+    ActionButton,
     QuickContact,
     QuoteFeature,
     ImageGallery,
@@ -66,19 +83,25 @@ export default {
   metaInfo: {
     title: "O'Neill Concrete Inc."
   },
-  data() {
-    return {
-      services: [
-        {
-          title: "Residential",
-          imgUrl: "~/assets/images/garage-floor.png"
-        },
-        {
-          title: "Commercial",
-          imgUrl: "~/assets/images/garage-floor.png"
-        }
-      ]
-    };
+  computed: {
+    siteContent() {
+      const {
+        banner_title,
+        banner_message,
+        welcome_title,
+        welcome_message
+      } = this.$page.content.edges[0].node;
+      return { banner_message, banner_title, welcome_title, welcome_message };
+    },
+    services() {
+      const allServices = this.$page.services.edges.map(edge => {
+        return {
+          title: edge.node.service_title,
+          description: edge.node.service_description
+        };
+      });
+      return allServices;
+    }
   }
 };
 </script>
@@ -89,4 +112,7 @@ export default {
   letter-spacing 0.075em
   text-shadow 8px 8px 16px rgba(53, 53, 53, 0.8), 6px 6px 4px rgba(53, 53, 53, 0.55)
   text-transform uppercase
+#banner-msg
+  color var(--white)
+  font-size 20px
 </style>

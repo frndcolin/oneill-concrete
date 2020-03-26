@@ -29,7 +29,7 @@ export default {
 <style lang="stylus">
 .header
   align-items center
-  background #efefef
+  background rgba(255, 255, 255, 0.5)
   display flex
   font-family var(--primary-font)
   justify-content center

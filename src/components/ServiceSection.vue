@@ -41,7 +41,8 @@ export default {
 <style lang="stylus">
 .service
   background var(--gray-1)
-  &.no-bg
+  min-height 720px
+  &:nth-of-type(2)
     background var(--white)
   &-image
     box-shadow var(--gray-shadow)

@@ -1,12 +1,15 @@
 <template lang="pug">
-  .image-gallery--wrapper
-    h2(style='text-align:center') Our Work
-    .image-gallery
-      .image-gallery--item(v-for='n in 12' @click='showImageModal' data-image-src='')
-        g-image(src='~/assets/images/garage-floor.png' height='200' width='200')
-    #image-modal(v-if='showModal' @click='showModal = !showModal')
-      .image-modal--content
-        img(:src='modalImage')
+  b-container
+    b-row(align-h='center')
+      b-col.content-center
+        .image-gallery--wrapper
+          h2(style='text-align:center') Our Work
+          .image-gallery
+            .image-gallery--item(v-for='n in 12' @click='showImageModal' data-image-src='')
+              g-image(src='~/assets/images/garage-floor.png' height='200' width='200')
+          #image-modal(v-if='showModal' @click='showModal = !showModal')
+            .image-modal--content
+              img(:src='modalImage')
 </template>
 
 <script>
