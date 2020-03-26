@@ -1,7 +1,11 @@
 ---
 banner-title: Slay the gray
-banner-message: O'Neill Concrete Inc. serve Cape Cod and South Shore MA
+banner-message: O'Neill Concrete Inc. serves Cape Cod and South Shore MA
 welcome-title: Welcome
-welcome-message: Welcome message and short description about the business goes here
+welcome-message: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+  tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
+  nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+  aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+  nulla pariatur.
 
 ---
