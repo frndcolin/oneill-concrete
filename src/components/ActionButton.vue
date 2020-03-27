@@ -1,5 +1,5 @@
 <template lang="pug">
-  button(:class='{full : isFullWidth}')
+  button(:class='{full : isFullWidth}' @click='$emit("clicked")')
     slot
 </template>
 
@@ -34,4 +34,9 @@ button
     background var(--primary-up1)
     box-shadow 0 8px 24px rgba(100, 100, 100, 0.3), 4px 4px 12px rgba(100, 100, 100, 0.4)
     transform translate(-0.5px, -1px)
+  &:active
+    background var(--primary-dn1)
+    transform translate(0.5px, 1px)
+  &:focus
+    outline none
 </style>

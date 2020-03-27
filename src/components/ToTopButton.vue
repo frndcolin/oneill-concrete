@@ -1,9 +1,9 @@
 <template lang="pug">
-  #to-top-button(@click='scrollToTop')
-    .icon
-      a(href='#')
-        g-image(src='~/assets/images/spade.svg')
-    p.hint To Top
+  #scroll-to-top(@click='scrollToTop')
+    .scroll-icon
+      .scroll-icon--wheel
+      .scroll-icon--arrow
+      .scroll-icon--arrow
 </template>
 
 <script>
@@ -12,57 +12,87 @@ export default {
     scrollToTop() {
       document.body.scrollTop = 0;
       document.documentElement.scrollTop = 0;
+      this.$router.push("/");
     }
   }
 };
 </script>
 
 <style lang="stylus" scoped>
-#to-top-button
-  background transparent
-  border 4px solid var(--gray-1)
+#scroll-to-top
+  align-items center
+  background var(--white)
+  border 4px solid var(--gray-2)
   border-radius 50%
   bottom 32px
   cursor pointer
-  opacity 0.85
-  padding 4px
+  display inline-block
+  display flex
+  height 72px
+  justify-content center
   position fixed
   right 48px
   transition all 0.3s
+  width 72px
   z-index 9999
-  .icon
-    background var(--gray-1)
-    border-radius 50%
-    padding 8px
-    transition all 0.3s
-    img
-      height auto
-      transition all 0.3s
-      transition-delay 0.1s
-      width 48px
-  .hint
-    bottom 8px
-    color var(--primary-up2)
-    font-size 14px
-    font-weight 700
-    left 50%
-    opacity 0
-    position absolute
-    text-align center
-    transform translateX(-50%)
-    transition bottom 0.3s, opacity 0.4s
-    width 100%
-    z-index -1
-  &:hover
+  .scroll-icon
     background var(--white)
-    border-color var(--primary-up2)
+    border 4px solid var(--gray-3)
+    border-radius 20px
     box-shadow var(--gray-shadow)
-    opacity 1
-    .icon
-      background var(--white)
-      img
-        transform scale(1.2)
-    .hint
-      bottom -44px
-      opacity 1
+    content ''
+    height 48px
+    position relative
+    width 32px
+    &--wheel
+      border 3px solid var(--gray-3)
+      border-radius 4px
+      content ''
+      height 12px
+      left 50%
+      position absolute
+      top 4px
+      transform translateX(-50%)
+    &--arrow
+      border-left 4px solid rgba(0, 0, 0, 0.035)
+      border-top 4px solid rgba(0, 0, 0, 0.035)
+      bottom 4px
+      content ''
+      height 12px
+      left 45%
+      margin -4px auto
+      position absolute
+      transform rotate(45deg) translateX(-50%)
+      width 12px
+  &:hover
+    background var(--gray-1)
+    border-color var(--gray-3)
+    transform scale(1.05)
+    .scroll-icon .scroll-icon--arrow
+      animation-duration 1.5s
+      animation-fill-mode forwards
+      animation-iteration-count infinite
+      animation-name arrow-up
+      animation-timing-function linear
+      &:nth-of-type(2)
+        animation-delay 0.75s
+@keyframes arrow-up
+  0%
+    border-left-color rgba(0, 0, 0, 0.01)
+    border-left-width 2px
+    border-top-color rgba(0, 0, 0, 0.01)
+    border-top-width 2px
+    bottom -4px
+  50%
+    border-left-color rgba(72, 72, 72, 0.5)
+    border-left-width 4px
+    border-top-color rgba(72, 72, 72, 0.5)
+    border-top-width 4px
+    bottom 8px
+  100%
+    border-left-color rgba(72, 72, 72, 0.025)
+    border-left-width 2px
+    border-top-color rgba(72, 72, 72, 0.025)
+    border-top-width 2px
+    bottom 12px
 </style>

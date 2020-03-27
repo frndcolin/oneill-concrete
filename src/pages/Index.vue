@@ -7,14 +7,14 @@
             h1#tagline {{ siteContent.banner_title }}
             p#banner-msg {{ siteContent.banner_message }}
             #banner-cta
-              action-button start your quote
+              action-button(@clicked='$router.push("#contact")') start your quote
     section#welcome
       b-container
         b-row( align-h='center')
-          b-col.content-center(cols='8')
+          b-col.content-center
             .content-wrapper
-              h2 {{ siteContent.welcome_title }}
-              p {{ siteContent.welcome_message }}
+              h2.text-center {{ siteContent.welcome_title }}
+              p.text-indent-first {{ siteContent.welcome_message }}
       quote-feature
     #services
       service-section(

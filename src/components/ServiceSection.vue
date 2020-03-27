@@ -3,13 +3,13 @@
     b-container(:class='targetClass')
       animator(:target='animatorTarget' triggerValue='0.1' enterClass='fadeIn' leaveClass='fadeOut')
         b-row
-          b-col.p-0(cols='6' :class='[flip ? "content-right" : "content-left"]' :order='flip ? 2 : null')
+          b-col.p-0(xs='12' md='6' :class='[flip ? "content-right" : "content-left"]' :order='flip ? 2 : null')
             .service-image
               slot(name='image')
                 img.service-image--overlay(src='../assets/images/oc-logo.svg')
                 g-image(src='~/assets/images/garage-floor.png' width='480')
-          b-col.content-center(cols='6')
-            .content-wrapper
+          b-col.content-center(xs='12' md='6')
+            .service-content
               slot(name='content')
                 h2 Custom Services
                 p.
@@ -89,6 +89,9 @@ export default {
       animation-fill-mode forwards
       animation-name spin
       animation-timing-function ease-in-out
+  &-content
+    h2
+      text-transform capitalize
 @keyframes spin
   from
     transform rotate(0deg)

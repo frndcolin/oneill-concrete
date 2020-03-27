@@ -1,5 +1,6 @@
 :root
   --primary-font 'Anton', Helvetica, sans-serif
+  --secondary-font 'Montserrat', Helvetica, Arial, sans-serif
 h1, h2, h3, h4, h5
   font-family var(--primary-font)
   letter-spacing 0.04rem
@@ -16,7 +17,16 @@ h4
 h5
   font-size 24px
 p
-  font-family 'Montserrat', Helvetica, Arial, sans-serif
+  font-family var(--secondary-font)
   font-size 16px
   letter-spacing 0.025em
   line-height 1.618em
+.text
+  &-center
+    text-align center
+  &-indent-first
+    text-indent 2.5em
+  &-normalize
+    color inherit
+    font-size inherit
+    text-decoration none
