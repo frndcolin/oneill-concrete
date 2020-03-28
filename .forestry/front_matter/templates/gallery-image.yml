@@ -1,4 +1,29 @@
 ---
 label: gallery-image
 hide_body: false
-fields: []
+fields:
+- name: image_title
+  type: text
+  config:
+    required: false
+  label: image title
+  description: title for alternate text of image
+- name: gallery_image
+  type: file
+  config:
+    maxSize: 250
+  label: gallery image
+- name: show
+  type: boolean
+  label: show
+  description: show image in gallery if selected
+  default: false
+- name: image_description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: image description
