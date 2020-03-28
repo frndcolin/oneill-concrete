@@ -11,7 +11,7 @@
     section#welcome
       b-container
         b-row( align-h='center')
-          b-col.content-center
+          b-col.content-center(md='8')
             .content-wrapper
               h2.text-center {{ siteContent.welcome_title }}
               p.text-indent-first {{ siteContent.welcome_message }}
@@ -24,7 +24,7 @@
         :key='service.title'
         )
         template(v-slot:content)
-          h2 {{ service.title}} Services
+          h3 {{ service.title}} Services
           p {{ service.description }}
     section#gallery
       image-gallery
