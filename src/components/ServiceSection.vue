@@ -1,24 +1,19 @@
 <template lang="pug">
-  section.service
-    b-container(:class='targetClass')
-      animator(:target='animatorTarget' triggerValue='0.1' enterClass='fadeIn' leaveClass='fadeOut')
-        b-row
-          b-col.p-0(xs='12' md='6' :class='[flip ? "content-right" : "content-left"]' :order='flip ? 2 : null')
-            .service-image
-              slot(name='image')
-                img.service-image--overlay(src='../assets/images/oc-logo.svg')
-                g-image(src='~/assets/images/garage-floor.png' width='480')
-          b-col.content-center(xs='12' md='6')
-            .service-content
-              slot(name='content')
-                h2 Custom Services
-                p.
-                  O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
+  b-row.service
+    b-col.p-0(xs='12' md='6' :class='[flip ? "content-right" : "content-left"]' :order='flip ? 2 : null')
+      .service-image
+        slot(name='image')
+          img.service-image--overlay(src='../assets/images/oc-logo.svg')
+          g-image(src='~/assets/images/garage-floor.png' width='480')
+    b-col.content-center(xs='12' md='6')
+      .service-content
+        slot(name='content')
+          h2 Custom Services
+          p.
+            O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
 </template>
 
 <script>
-import Animator from "./Animator";
-
 export default {
   props: {
     flip: {
@@ -26,7 +21,6 @@ export default {
       default: false
     }
   },
-  components: { Animator },
   computed: {
     targetClass() {
       return `${this.$attrs.id}--target`;
@@ -39,11 +33,10 @@ export default {
 </script>
 
 <style lang="stylus">
-.service
+#services
   background var(--gray-1)
-  min-height 720px
-  &:nth-of-type(2)
-    background var(--white)
+.service
+  padding 80px 0
   &-image
     box-shadow var(--gray-shadow)
     position relative

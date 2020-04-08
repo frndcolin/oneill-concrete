@@ -16,16 +16,17 @@
               h2.text-center {{ siteContent.welcome_title }}
               p.text-indent-first {{ siteContent.welcome_message }}
       quote-feature
-    #services
-      service-section(
-        v-for='(service, index) in services'
-        :id='service.title'
-        :flip='index % 2 === 0 ? true : false'
-        :key='service.title'
-        )
-        template(v-slot:content)
-          h3 {{ service.title}} Services
-          p {{ service.description }}
+    section#services
+      b-container
+        service-section(
+          v-for='(service, index) in services'
+          :id='service.title'
+          :flip='index % 2 === 0 ? true : false'
+          :key='service.title'
+          )
+          template(v-slot:content)
+            h3 {{ service.title}} Services
+            p {{ service.description }}
     section#gallery
       image-gallery
     section#contact

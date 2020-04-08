@@ -22,6 +22,7 @@ button
   box-shadow 0 8px 24px rgba(100, 100, 100, 0.2), 4px 4px 8px rgba(100, 100, 100, 0.2)
   color white
   font-family var(--body-font)
+  font-weight 600
   letter-spacing 0.05em
   line-height 1.418em
   margin 0

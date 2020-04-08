@@ -30,7 +30,6 @@ export default {
 .header
   align-items center
   background rgba(255, 255, 255, 0.5)
-  border-bottom 4px solid var(--black)
   display flex
   font-family var(--primary-font)
   justify-content center
@@ -38,7 +37,7 @@ export default {
   text-transform uppercase
 .navbar
   display flex
-  height 80px
+  height 72px
   justify-content space-between
   padding-top 1rem
   width 80%
