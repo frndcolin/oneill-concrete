@@ -27,5 +27,3 @@ fields:
     schema:
       format: markdown
   label: image description
-pages:
-- content/gallery/stonestairs.md
