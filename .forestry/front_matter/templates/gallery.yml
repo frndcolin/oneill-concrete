@@ -1,4 +1,9 @@
 ---
 label: gallery
 hide_body: true
-fields: []
+fields:
+- name: images
+  type: image_gallery
+  config: {}
+  label: images
+  description: images to display in gallery
