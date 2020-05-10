@@ -2,6 +2,7 @@
   b-container(fluid)
     b-row(align-h='center')
       b-col(md='10')
+        h2.text-center Our Work
         vueper-slides(
           class="no-shadow"
           :visible-slides="3"

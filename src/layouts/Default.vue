@@ -3,10 +3,14 @@
     .media-bar
       .media-bar--content
         .media-bar--icons
-          span phone
-          span mail
-          span ig
-          span fb
+          span
+            fa-icon(icon='phone')
+          span
+            fa-icon(icon='envelope')
+          span
+            fa-icon(:icon="['fab', 'facebook-f']")
+          span
+            fa-icon(:icon="['fab', 'instagram']")
     page-header
     slot
     page-footer
@@ -38,5 +42,6 @@ export default {
     width 80%
   &--icons
     span
+      color white
       margin 0 16px
 </style>

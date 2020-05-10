@@ -5,9 +5,9 @@
         b-row(align-h='center')
           b-col.content-center--column
             h1#tagline {{ siteContent.banner_title }}
-            p#banner-msg {{ siteContent.banner_message }}
+            p#banner-msg Serving Cape Cod and South Shore MA
             #banner-cta
-              action-button(@clicked='$router.push("#contact")') start your quote
+              action-button(@clicked='$router.push("#contact")') start your quote today
     section#welcome
       b-container
         b-row( align-h='center')
@@ -113,7 +113,7 @@ export default {
   color var(--white)
   font-size 20px
   margin 24px auto
-  max-width 400px
+  max-width 440px
 #services
   background var(--gray-1)
   background-image linear-gradient(to bottom right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.25))
