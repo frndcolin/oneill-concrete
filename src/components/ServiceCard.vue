@@ -17,11 +17,14 @@
   box-shadow var(--gray-shadow)
   display flex
   flex-direction column
-  width 100%
+  max-width 440px
+  transform scale(0.95)
+  transition all 0.3s
   &--header
+    border-bottom 4px solid var(--primary)
     position relative
     .header-image
-      height auto
+      height 280px
       width 100%
       &--overlay
         bottom 16px
@@ -31,14 +34,27 @@
         right 16px
         transition all 0.4s
         width auto
+  &:hover
+    box-shadow var(--gray-shadow--hover)
+    transform scale(1)
+    .header-image--overlay
+      animation-duration 1.5s
+      animation-fill-mode forwards
+      animation-name spin
+      animation-timing-function ease-in-out
   &--body
-    padding 32px 24px 40px 24px
+    padding 40px 40px 24px
     p
       display -webkit-box
       margin 24px 0 32px 0
       overflow hidden
       -webkit-box-orient vertical
-      -webkit-line-clamp 5
+      -webkit-line-clamp 4
     .service-card--action
       text-align right
+@keyframes spin
+  from
+    transform rotate(0deg)
+  to
+    transform rotate(360deg)
 </style>

@@ -33,8 +33,6 @@ export default {
 </script>
 
 <style lang="stylus">
-#services
-  background var(--gray-1)
 .service
   padding 80px 0
   &-image
@@ -85,9 +83,4 @@ export default {
   &-content
     h2
       text-transform capitalize
-@keyframes spin
-  from
-    transform rotate(0deg)
-  to
-    transform rotate(360deg)
 </style>

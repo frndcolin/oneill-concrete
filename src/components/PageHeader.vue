@@ -29,12 +29,15 @@ export default {
 <style lang="stylus">
 .header
   align-items center
-  background rgba(255, 255, 255, 0.5)
   display flex
   font-family var(--primary-font)
   justify-content center
   letter-spacing 0.075em
+  position absolute
   text-transform uppercase
+  top 40px
+  width 100%
+  z-index 1
 .navbar
   display flex
   height 72px
@@ -42,39 +45,22 @@ export default {
   padding-top 1rem
   width 80%
   &-logo
-    background-image url('../assets/images/Text-Mask.jpg')
-    background-position top
-    background-size cover
-    color rgba(255, 255, 255, 0.15)
-    font-size 32px
+    color var(--gray-1)
+    font-size 40px
     letter-spacing 0.075em
-    -webkit-background-clip text
+    position relative
+    &::after
+      background transparent
+      content ''
+      height 110%
+      left -5%
+      position absolute
+      top -8%
+      width 110%
+      z-index -1
   &-list
     align-items center
     display flex
-  &-item
-    color var(--gray-3)
-    cursor pointer
-    margin-left 40px
-    overflow visible
-    padding 8px 16px 6px 16px
-    position relative
-    transition all 0.4s
-    &::before
-      background transparent
-      border-bottom 4px solid var(--gray-4)
-      content ''
-      height 100%
-      left 0
-      position absolute
-      top 0
-      transition 0.4s
-      width 0
-    &:hover
-      color var(--gray-4)
-      text-decoration none
-      &::before
-        width 100%
   &-button
     align-items space-around
     display flex

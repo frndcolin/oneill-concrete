@@ -18,15 +18,9 @@
       quote-feature
     section#services
       b-container
-        service-section(
-          v-for='(service, index) in services'
-          :id='service.title'
-          :flip='index % 2 === 0 ? true : false'
-          :key='service.title'
-          )
-          template(v-slot:content)
-            h3 {{ service.title}} Services
-            p {{ service.description }}
+        .services-cards
+          service-card
+          service-card
     section#gallery
       image-gallery
     section#contact
@@ -69,6 +63,7 @@ import ImageGallery from "../components/ImageGallery";
 import Animator from "../components/Animator";
 import ToTopButton from "../components/ToTopButton";
 import ServiceSection from "../components/ServiceSection";
+import ServiceCard from "../components/ServiceCard";
 import ActionButton from "../components/ActionButton";
 
 export default {
@@ -79,7 +74,7 @@ export default {
     ImageGallery,
     Animator,
     ToTopButton,
-    ServiceSection
+    ServiceCard
   },
   metaInfo: {
     title: "O'Neill Concrete Inc."
@@ -109,11 +104,20 @@ export default {
 
 <style lang='stylus'>
 #tagline
-  color var(--white)
+  color var(--gray-2)
   letter-spacing 0.075em
+  padding-top 40px
   text-shadow 8px 8px 16px rgba(53, 53, 53, 0.8), 6px 6px 4px rgba(53, 53, 53, 0.55)
   text-transform uppercase
 #banner-msg
   color var(--white)
   font-size 20px
+  margin 24px auto
+  max-width 400px
+#services
+  background var(--gray-1)
+  background-image linear-gradient(to bottom right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.25))
+.services-cards
+  display flex
+  justify-content space-around
 </style>

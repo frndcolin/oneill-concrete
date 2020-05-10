@@ -28,8 +28,10 @@ pad = 16px
 extra = calc(pad * 1.2)
 bgcolor = var(--primary)
 .nav-link
-  color var(--gray-3)
+  color var(--gray-2)
   cursor pointer
+  font-family var(--secondary-font)
+  font-weight 600
   letter-spacing 0.15em
   margin-left 20px
   padding 8px 12px 2px 12px
@@ -66,7 +68,7 @@ bgcolor = var(--primary)
     transform-origin right
     transition transform 0.3s cubic-bezier(1, 0, 0.65, 1.01)
 a.nav-link:hover, a.nav-link:active
-  color bgcolor
+  color var(--white)
   .line
     transform scale3d(1, 1, 1)
     &--right
