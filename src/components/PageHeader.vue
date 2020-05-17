@@ -7,7 +7,7 @@
       .navbar-list
         nav-link(link='#services' text='Services')
         nav-link(link='#gallery' text='Gallery')
-        nav-link(link='#contact' text='Contact')
+        nav-link(link='/contact' text='Contact')
 </template>
 
 <static-query>
@@ -45,8 +45,8 @@ export default {
   padding-top 1rem
   width 80%
   &-logo
-    color var(--gray-1)
-    font-size 40px
+    color var(--gray-2)
+    font-size 32px
     letter-spacing 0.075em
     position relative
     &::after

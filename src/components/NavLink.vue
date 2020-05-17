@@ -28,9 +28,10 @@ pad = 16px
 extra = calc(pad * 1.2)
 bgcolor = var(--primary)
 .nav-link
-  color var(--gray-2)
+  color var(--gray-1)
   cursor pointer
   font-family var(--secondary-font)
+  font-size 0.9rem
   font-weight 600
   letter-spacing 0.15em
   margin-left 20px

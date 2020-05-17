@@ -31,7 +31,7 @@ export default {
 <style lang="stylus" scoped>
 .media-bar
   align-items center
-  background var(--gray-4)
+  background var(--primary)
   display flex
   height 28px
   justify-content center
