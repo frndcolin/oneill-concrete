@@ -11,6 +11,7 @@
           :slide-ratio="1 / 3"
           :dragging-distance="70"
           slide-image-inside
+          :init-slide='2'
         )
           vueper-slide.gallery-img(v-for="(slide, i) in $static.images.edges[0].node.images" :key="i" :image="slide.src")
 </template>

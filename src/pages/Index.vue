@@ -18,54 +18,9 @@
       quote-feature
     section#services
       b-container
-        .services-cards
-          service-card
-          service-card
+        service(v-for='i in 3' :reversed='i % 2 === 0')
     section#gallery
       image-gallery
-    section#contact
-      b-container
-        b-row(align-h='center')
-          b-col(cols='6')
-            h2 CONTACT
-            .contact-form
-              b-form(
-                name="contact"
-                method="post"
-                @submit.prevent="handleSubmit"
-                action="/success/"
-                data-netlify="true"
-                data-netlify-honeypot="bot-field")
-                input(type="hidden" name="name" value="contact")
-                p(hidden)
-                  label Don’t fill this out:
-                    input(name="bot-field")
-                b-form-group(id="input-group-2" label="Name:" label-for="form-name")
-                  b-form-input(
-                    id="name"
-                    name="name"
-                    v-model="form.name"
-                    required
-                    placeholder="Enter name")
-                b-form-group(
-                  id="input-group-1"
-                  label="Email:"
-                  label-for="email")
-                  b-form-input(
-                    id="email"
-                    v-model="form.email"
-                    name="email"
-                    type="email"
-                    required
-                    placeholder="Enter email")
-                b-form-group( id="input-group-3" label="Message:" label-for="message")
-                  b-form-textarea(
-                    id="message"
-                    name="message"
-                    v-model="form.message"
-                    required
-                    placeholder="Enter message")
-                b-button(type="submit" variant="primary") Submit
     animator(target='#welcome' triggerValue='0.1' enterClass='fadeInRight' leaveClass='fadeOutRight' )
       to-top-button
 </template>
@@ -102,6 +57,7 @@ import Animator from "../components/Animator";
 import ToTopButton from "../components/ToTopButton";
 import ServiceSection from "../components/ServiceSection";
 import ServiceCard from "../components/ServiceCard";
+import Service from "../components/Service";
 import ActionButton from "../components/ActionButton";
 
 export default {
@@ -112,7 +68,8 @@ export default {
     ImageGallery,
     Animator,
     ToTopButton,
-    ServiceCard
+    ServiceCard,
+    Service
   },
   metaInfo: {
     title: "O'Neill Concrete Inc."
@@ -172,11 +129,9 @@ export default {
 
 <style lang='stylus'>
 #tagline
-  color var(--gray-1)
-  letter-spacing 0.06em
+  color var(--gray-2)
   margin 16px
-  padding 40px 0 0 0
-  text-shadow 8px 8px 16px rgba(53, 53, 53, 0.4), 6px 6px 4px rgba(53, 53, 53, 0.55)
+  padding 56px 0 0 0
   text-transform uppercase
 #banner-msg
   color var(--white)
@@ -184,7 +139,6 @@ export default {
   padding-bottom 64px
 #services
   background var(--gray-1)
-  background-image linear-gradient(to bottom right, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.25))
 .services-cards
   display flex
   justify-content space-around
