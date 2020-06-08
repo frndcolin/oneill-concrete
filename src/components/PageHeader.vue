@@ -1,5 +1,5 @@
 <template lang='pug'>
-  header.header
+  header.header(:class="{'bg-dark': dark}")
     .media-bar
       .media-bar--content
         .media-bar--icons
@@ -33,7 +33,13 @@ query {
 import NavLink from "../components/NavLink";
 
 export default {
-  components: { NavLink }
+  components: { NavLink },
+  props: {
+    dark: {
+      type: Boolean,
+      default: false
+    }
+  }
 };
 </script>
 
@@ -50,9 +56,10 @@ export default {
 .media-bar
   align-items center
   background rgba(0, 0, 0, 0.85)
+  background var(--primary)
   display flex
   justify-content center
-  padding 4px 0
+  padding 2px 0
   width 100%
   &--content
     color white

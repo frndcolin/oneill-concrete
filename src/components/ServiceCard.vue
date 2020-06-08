@@ -1,15 +1,27 @@
 <template lang="pug">
-  .service-card
+  .service-card(:class='{"highlight": highlight}')
     .service-card--header
       img.header-image--overlay(src='../assets/images/oc-logo.svg')
-      g-image.header-image(src='~/assets/images/garage-floor.png')
+      div
+        slot(name='image')
+          g-image.header-image(src='~/assets/images/garage-floor.png')
     .service-card--body
-      h4 Commercial Service
-      p.
-        O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
+      h5
+        slot(name='header') Commercial Service
+      p
+        slot(name='body').
+          O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work. We accomplish this by providing superior service, quality products and competitive pricing. O'Neill Concrete Inc works with residential, commercial and industrial customers where our experience is the difference on all of our projects.
       .service-card--action
         a(href='') learn more →
 </template>
+
+<script>
+export default {
+  props: {
+    highlight: { type: Boolean, default: false }
+  }
+};
+</script>
 
 <style lang="stylus" scoped>
 .service-card
@@ -34,6 +46,9 @@
         right 16px
         transition all 0.4s
         width auto
+  &.highlight
+    box-shadow var(--gray-shadow--hover)
+    transform scale(1)
   &:hover
     box-shadow var(--gray-shadow--hover)
     transform scale(1)
@@ -49,9 +64,17 @@
       margin 24px 0 32px 0
       overflow hidden
       -webkit-box-orient vertical
-      -webkit-line-clamp 4
+      -webkit-line-clamp 3
     .service-card--action
       text-align right
+      a
+        border-bottom 2px solid transparent
+        transition all 0.15s ease
+        &:hover
+          border-bottom-color var(--primary)
+          color var(--primary)
+          font-weight bold
+          text-decoration none
 @keyframes spin
   from
     transform rotate(0deg)

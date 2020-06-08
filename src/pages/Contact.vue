@@ -1,9 +1,13 @@
 <template lang="pug">
-  section#contact
+  layout(dark)
+    section#contact
       b-container
-        b-row(align-h='center')
+        b-row(align-h='center' align-v='center')
           b-col(cols='6')
-            h2 CONTACT
+            h2 Request a quote
+            p.
+              Thank you for choosing O'Neill Concrete INC for your next home or commercial project. Our foreman and his crew have over ten years of experience in the concrete industry. With us, your vision can be made a reality!
+          b-col(cols='5' offset-sm='1')
             .contact-form
               b-form(
                 name="contact"
@@ -16,17 +20,14 @@
                 p(hidden)
                   label Don’t fill this out:
                     input(name="bot-field")
-                b-form-group(id="input-group-2" label="Name:" label-for="form-name")
+                b-form-group(id="input-group---name" label="Name:" label-for="form-name" label-class='form-label')
                   b-form-input(
                     id="name"
                     name="name"
                     v-model="form.name"
                     required
                     placeholder="Enter name")
-                b-form-group(
-                  id="input-group-1"
-                  label="Email:"
-                  label-for="email")
+                b-form-group(id="input-group--email" label="Email:" label-for="email" label-class='form-label')
                   b-form-input(
                     id="email"
                     v-model="form.email"
@@ -34,12 +35,61 @@
                     type="email"
                     required
                     placeholder="Enter email")
-                b-form-group( id="input-group-3" label="Message:" label-for="message")
+                b-form-group(id="input-group--message" label="Message:" label-for="message" label-class='form-label')
                   b-form-textarea(
                     id="message"
                     name="message"
                     v-model="form.message"
                     required
                     placeholder="Enter message")
-                b-button(type="submit" variant="primary") Submit
+                .form-action--wrapper
+                  action-button(@clicked='$router.push("#contact")' isFullWidth) start your quote today
 </template>
+
+<script>
+import ActionButton from "../components/ActionButton";
+
+export default {
+  components: { ActionButton },
+  data() {
+    return {
+      form: {
+        name: "",
+        email: "",
+        message: ""
+      }
+    };
+  },
+  methods: {
+    encode(data) {
+      return Object.keys(data)
+        .map(
+          key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
+        )
+        .join("&");
+    },
+    handleSubmit(e) {
+      fetch("/", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: this.encode({
+          "form-name": e.target.getAttribute("name"),
+          ...this.form
+        })
+      })
+        .then(() => this.$router.push("/success"))
+        .catch(error => alert(error));
+    }
+  }
+};
+</script>
+
+<style lang="stylus">
+#contact
+  margin 80px 0
+.form-action--wrapper
+  padding 24px 0 0 0
+label
+  font-size 14px
+  font-weight bold
+</style>

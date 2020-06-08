@@ -18,7 +18,22 @@
       quote-feature
     section#services
       b-container
-        service(v-for='i in 3' :reversed='i % 2 === 0')
+        b-row
+          b-col(cols='4')
+            service-card
+              template(v-slot:header) Patio/Slabs
+              template(v-slot:body).
+                Patio/Slabs O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work.
+          b-col(cols='4')
+            service-card(highlight)
+              template(v-slot:header) Driveway/Extensions
+              template(v-slot:body).
+                 Driveway/Extensions O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work.
+          b-col(cols='4')
+            service-card
+              template(v-slot:header) Walks/Sidewalks
+              template(v-slot:body).
+                Walks/Sidewalks O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work.
     section#gallery
       image-gallery
     animator(target='#welcome' triggerValue='0.1' enterClass='fadeInRight' leaveClass='fadeOutRight' )
@@ -74,15 +89,6 @@ export default {
   metaInfo: {
     title: "O'Neill Concrete Inc."
   },
-  data() {
-    return {
-      form: {
-        name: "",
-        email: "",
-        message: ""
-      }
-    };
-  },
   computed: {
     siteContent() {
       const {
@@ -101,27 +107,6 @@ export default {
         };
       });
       return allServices;
-    }
-  },
-  methods: {
-    encode(data) {
-      return Object.keys(data)
-        .map(
-          key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key])
-        )
-        .join("&");
-    },
-    handleSubmit(e) {
-      fetch("/", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: this.encode({
-          "form-name": e.target.getAttribute("name"),
-          ...this.form
-        })
-      })
-        .then(() => this.$router.push("/success"))
-        .catch(error => alert(error));
     }
   }
 };

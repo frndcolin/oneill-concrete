@@ -1,6 +1,6 @@
 <template lang='pug'>
   #page
-    page-header
+    page-header(:dark='dark')
     slot
     page-footer
 </template>
@@ -13,6 +13,12 @@ export default {
   components: {
     PageFooter,
     PageHeader
+  },
+  props: {
+    dark: {
+      type: Boolean,
+      default: false
+    }
   }
 };
 </script>
