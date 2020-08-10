@@ -19,7 +19,7 @@ export default {
   },
   props: {
     target: { type: String, default: "" },
-    triggerValue: { type: String, default: "1" },
+    trigger: { type: String, default: "1" },
     enterClass: { type: String, default: "bounceIn" },
     leaveClass: { type: String, default: "bounceOut" }
   },

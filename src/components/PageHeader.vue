@@ -1,16 +1,5 @@
 <template lang='pug'>
   header.header(:class="{'bg-dark': dark}")
-    .media-bar
-      .media-bar--content
-        .media-bar--icons
-          span
-            fa-icon(icon='phone')
-          span
-            fa-icon(icon='envelope')
-          span
-            fa-icon(:icon="['fab', 'facebook-f']")
-          span
-            fa-icon(:icon="['fab', 'instagram']")
     nav.navbar
       .navbar-logo(href='#') {{ $static.metadata.siteName }}
       .navbar-button
@@ -46,30 +35,13 @@ export default {
 <style lang="stylus">
 .header
   align-items center
-  font-family var(--primary-font)
+  font-family var(--secondary-font)
   letter-spacing 0.075em
   position absolute
   text-transform uppercase
   top 0
   width 100%
   z-index 1
-.media-bar
-  align-items center
-  background rgba(0, 0, 0, 0.85)
-  background var(--primary)
-  display flex
-  justify-content center
-  padding 2px 0
-  width 100%
-  &--content
-    color white
-    display flex
-    justify-content flex-end
-    width 80%
-  &--icons
-    span
-      color white
-      margin 0 16px
 .navbar
   display flex
   height 72px

@@ -31,8 +31,7 @@ bgcolor = var(--primary)
   color var(--gray-1)
   cursor pointer
   font-family var(--secondary-font)
-  font-size 0.9rem
-  font-weight 600
+  font-size 1rem
   letter-spacing 0.15em
   margin-left 20px
   padding 8px 12px 2px 12px

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .service-card(:class='{"highlight": highlight}')
+  .service-card
     .service-card--header
       img.header-image--overlay(src='../assets/images/oc-logo.svg')
       div
@@ -15,21 +15,12 @@
         a(href='') learn more →
 </template>
 
-<script>
-export default {
-  props: {
-    highlight: { type: Boolean, default: false }
-  }
-};
-</script>
-
 <style lang="stylus" scoped>
 .service-card
   background var(--white)
   box-shadow var(--gray-shadow)
   display flex
   flex-direction column
-  max-width 440px
   transform scale(0.95)
   transition all 0.3s
   &--header
@@ -46,9 +37,6 @@ export default {
         right 16px
         transition all 0.4s
         width auto
-  &.highlight
-    box-shadow var(--gray-shadow--hover)
-    transform scale(1)
   &:hover
     box-shadow var(--gray-shadow--hover)
     transform scale(1)

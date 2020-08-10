@@ -20,7 +20,7 @@ export default function (Vue, { router, head, isClient }) {
   Vue.mixin(checkIfMobile)
   head.link.push({
     rel: 'stylesheet',
-    href: 'https://fonts.googleapis.com/css?family=Anton|Slabo+27px|Montserrat:500,700&display=swap'
+    href: 'https://fonts.googleapis.com/css?family=Anton|Montserrat:300,400,500,700&display=swap'
   })
   head.script.push({
     src: "https://use.fontawesome.com/cddedd6946.js"

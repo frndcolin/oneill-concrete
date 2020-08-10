@@ -5,17 +5,9 @@
         b-row(align-h='center')
           b-col.content-center--column
             h1#tagline {{ siteContent.banner_title }}
-            #banner-msg Concrete solutions for Cape Cod and South Shore MA
+            #banner-msg Commercial and residential concrete solutions for Cape Cod and South Shore MA
             #banner-cta
               action-button(@clicked='$router.push("#contact")') start your quote today
-    section#welcome
-      b-container
-        b-row( align-h='center')
-          b-col.content-center(md='8')
-            .content-wrapper
-              h2.text-center {{ siteContent.welcome_title }}
-              p.text-indent-first {{ siteContent.welcome_message }}
-      quote-feature
     section#services
       b-container
         b-row
@@ -25,7 +17,7 @@
               template(v-slot:body).
                 Patio/Slabs O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work.
           b-col(cols='4')
-            service-card(highlight)
+            service-card
               template(v-slot:header) Driveway/Extensions
               template(v-slot:body).
                  Driveway/Extensions O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work.
@@ -34,9 +26,17 @@
               template(v-slot:header) Walks/Sidewalks
               template(v-slot:body).
                 Walks/Sidewalks O'Neill Concrete Inc. is a full service concrete company that has proudly served the Tri-Conuty area with forty five years experience. Our trained professionals focus on customer service and quality work.
+      quote-feature
+    section#welcome
+      b-container
+        b-row( align-h='center')
+          b-col.content-center(md='8')
+            .content-wrapper
+              h2.text-center {{ siteContent.welcome_title }}
+              p.text-indent-first {{ siteContent.welcome_message }}
     section#gallery
       image-gallery
-    animator(target='#welcome' triggerValue='0.1' enterClass='fadeInRight' leaveClass='fadeOutRight' )
+    animator(target='#welcome' trigger='0.1' enterClass='fadeInRight' leaveClass='fadeOutRight' )
       to-top-button
 </template>
 
@@ -70,9 +70,7 @@ import QuoteFeature from "../components/QuoteFeature";
 import ImageGallery from "../components/ImageGallery";
 import Animator from "../components/Animator";
 import ToTopButton from "../components/ToTopButton";
-import ServiceSection from "../components/ServiceSection";
 import ServiceCard from "../components/ServiceCard";
-import Service from "../components/Service";
 import ActionButton from "../components/ActionButton";
 
 export default {
@@ -83,8 +81,7 @@ export default {
     ImageGallery,
     Animator,
     ToTopButton,
-    ServiceCard,
-    Service
+    ServiceCard
   },
   metaInfo: {
     title: "O'Neill Concrete Inc."
@@ -115,14 +112,22 @@ export default {
 <style lang='stylus'>
 #tagline
   color var(--gray-2)
-  margin 16px
-  padding 56px 0 0 0
+  line-height 1.5em
+  margin 0 auto
+  padding 0
   text-transform uppercase
+  width 80%
 #banner-msg
   color var(--white)
   font-size 20px
-  padding-bottom 64px
-#services
+  max-width 560px
+  font-family var(--secondary-font)
+  font-weight 300
+  margin 0 auto
+  letter-spacing 0.1em
+#banner-cta
+  margin-top 56px
+#welcome
   background var(--gray-1)
 .services-cards
   display flex

@@ -20,14 +20,14 @@
                 p(hidden)
                   label Don’t fill this out:
                     input(name="bot-field")
-                b-form-group(id="input-group---name" label="Name:" label-for="form-name" label-class='form-label')
+                b-form-group(id="input-group---name" label="Name" label-for="form-name" label-class='form-label')
                   b-form-input(
                     id="name"
                     name="name"
                     v-model="form.name"
                     required
                     placeholder="Enter name")
-                b-form-group(id="input-group--email" label="Email:" label-for="email" label-class='form-label')
+                b-form-group(id="input-group--email" label="Email" label-for="email" label-class='form-label')
                   b-form-input(
                     id="email"
                     v-model="form.email"
@@ -35,7 +35,13 @@
                     type="email"
                     required
                     placeholder="Enter email")
-                b-form-group(id="input-group--message" label="Message:" label-for="message" label-class='form-label')
+                b-form-group(id="input-group---service" label="Service" label-for="form-service" label-class='form-label')
+                  b-form-select(
+                    id="service"
+                    name="service"
+                    v-model="form.service"
+                    :options="services")
+                b-form-group(id="input-group--message" label="Message" label-for="message" label-class='form-label')
                   b-form-textarea(
                     id="message"
                     name="message"
@@ -56,8 +62,10 @@ export default {
       form: {
         name: "",
         email: "",
-        message: ""
-      }
+        message: "",
+        service: null
+      },
+      services: ["Slab/Patio", "Walkway", "Driveway/Extensions"]
     };
   },
   methods: {
@@ -86,10 +94,17 @@ export default {
 
 <style lang="stylus">
 #contact
-  margin 80px 0
+  margin 40px 0
+.contact-form
+  background-color var(--gray-4)
+  border-radius 4px
+  box-shadow 4px 4px 16px rgba(0, 0, 0, 0.15), 4px 4px 12px rgba(0, 0, 0, 0.2)
+  padding 48px 24px 24px 24px
 .form-action--wrapper
   padding 24px 0 0 0
 label
+  color var(--gray-2)
   font-size 14px
   font-weight bold
+  margin 0 0 4px 4px
 </style>
